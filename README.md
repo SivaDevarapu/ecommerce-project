@@ -19,7 +19,7 @@ Frontend
 - CSS
 
 Database
-- MySQL
+- h2 database
 
 ## Features
 - User registration and login
