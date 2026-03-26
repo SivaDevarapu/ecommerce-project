@@ -23,7 +23,7 @@ const Home = ({ selectedCategory }) => {
           data.map(async (product) => {
             try {
               const response = await axios.get(
-                `http://localhost:8080/api/product/${product.id}/image`,
+                `https://ecommerce-project-1-nh9p.onrender.com/api/product/${product.id}/image`,
                 { responseType: "blob" }
               );
               const imageUrl = URL.createObjectURL(response.data);
@@ -152,7 +152,7 @@ const Home = ({ selectedCategory }) => {
                         className="card-text"
                         style={{ fontWeight: "600", fontSize: "1.1rem",marginBottom:'5px' }}
                       >
-                        <i class="bi bi-currency-rupee"></i>
+                        <i class="bi bi-currency-dollar"></i>
                         {price}
                       </h5>
                     </div>
@@ -160,7 +160,8 @@ const Home = ({ selectedCategory }) => {
                       className="btn-hover color-9"
                       style={{margin:'10px 25px 0px '  }}
                       onClick={(e) => {
-                        e.preventDefault();
+                        e.preventDefault(); 
+                        e.stopPropagation();
                         addToCart(product);
                       }}
                       disabled={!productAvailable}
@@ -169,6 +170,7 @@ const Home = ({ selectedCategory }) => {
                     </button> 
                   </div>
                 </Link>
+                
               </div>
             );
           })
