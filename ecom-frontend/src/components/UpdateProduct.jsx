@@ -22,7 +22,7 @@ const UpdateProduct = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/product/${id}`
+          `https://ecommerce-project-1-nh9p.onrender.com/api/product/${id}`
         );
 
         setProduct(response.data);
